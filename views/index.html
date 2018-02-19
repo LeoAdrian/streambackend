@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta name="author" content="Amin Developer!" />
+
+<title>Untitled 1</title>
+<style>
+  html {
+    width:100%;
+    height:100%;
+    margin:0;
+    background-color: black;
+    overflow-x: hidden;
+  }
+
+  body{
+    width:70%;
+    margin:0, auto;
+  }
+
+  p {
+    padding-left: 30%;
+    margin-top:5%;
+}
+
+  h1 {
+    color:white;
+  }
+
+  video {
+    width:800px;
+  }
+  </style>
+</head>
+<body>
+
+<h1>Video stream</h1>
+
+<p><video  autoplay controls onerror="failed(event)" >
+  <source  src="http://localhost:8000/video" type="video/mp4">
+</video></p>
+
+<script type="text/javascript">
+function failed(e) {
+// video playback failed - show a message saying why
+switch (e.target.error.code) {
+  case e.target.error.MEDIA_ERR_ABORTED:
+    alert('You aborted the video playback.');
+    break;
+  case e.target.error.MEDIA_ERR_NETWORK:
+    alert('A network error caused the video download to fail part-way.');
+    break;
+  case e.target.error.MEDIA_ERR_DECODE:
+    alert('The video playback was aborted due to a corruption problem or because the video used features your browser did not support.');
+    break;
+  case e.target.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+    alert('The video could not be loaded, either because the server or network failed or because the format is not supported.');
+    break;
+  default:
+    alert('An unknown error occurred.');
+    break;
+}
+}
+</script>
+</body>
+</html>
